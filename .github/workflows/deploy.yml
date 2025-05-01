@@ -54,11 +54,3 @@ jobs:
         run: aws deploy create-deployment --application-name MyNodeApplicationDeploy --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name production --s3-location bucket=mynodeapplicationbucket,key=code.zip,bundleType=zip
 
 
-      - name: Trigger CodeDeploy deployment
-        run: |
-          aws deploy create-deployment \
-            --application-name MyNodeApplication \
-            --deployment-group-name MyDeploymentGroup \
-            --s3-location bucket=mynodeapplicationbucket,key=deployments/code.zip,bundleType=zip \
-            --deployment-config-name CodeDeployDefault.AllAtOnce \
-            --description "Auto deploy from GitHub Actions"
